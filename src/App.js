@@ -4,12 +4,19 @@ import Characters from './components/Characters'
 import mapCharacter from './utilities/mapCharacters'
 import './App.css';
 import Pagination from './components/Pagination';
+import styled from 'styled-components'
 
 
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+`
 
 const App = () => {
 
-  const [data, setData] = useState({})
+  const [data, setData] = useState([])
   const [info, setInfo] = useState({})
 
   useEffect(() => {
@@ -23,20 +30,47 @@ const App = () => {
   }, []);
 
   const onClickPrev = () => {
-    console.log('clicked')
+    axios.get(info.prev)
+    .then((res) => {
+      const parsedCharacters = res.data.results.map(mapCharacter)
+      setInfo(res.data.info)
+      setData(parsedCharacters)
+      console.log(parsedCharacters)
+      console.log(res.data.info)
+    })
+    .catch((err) => console.log(err));
+    console.log('clicked prev')
   }
 
+  const onClickNext = () => {
+    axios.get(info.next)
+    .then((res) => {
+      const parsedCharacters = res.data.results.map(mapCharacter)
+      setInfo(res.data.info)
+      setData(parsedCharacters)
+      console.log(parsedCharacters)
+      console.log(res.data.info)
+    })
+    .catch((err) => console.log(err));
+    console.log('clicked next')
+  }
+
+  const hasNext = info && info.next
+  const hasPrev = info && info.prev
+
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
+    <AppContainer>
+      <h1 className="Header">Rick and Morty Cast</h1>
       {(data) && <Characters 
           data={data}
        />}
       {(data) && <Pagination
         onClickPrev={onClickPrev}
         onClickNext={onClickNext}
+        hasNext={hasNext}
+        hasPrev={hasPrev}
       />}
-    </div>
+    </AppContainer>
   );
 }
 

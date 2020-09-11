@@ -12,5 +12,6 @@
   opacity: 85%;
   border: 1px solid #443e3e;
   border-radius: 8%;
+  align-self: center;
 }
 /* write your parent styles in here for your App.js */

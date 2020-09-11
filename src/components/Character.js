@@ -1,9 +1,19 @@
+// import src from '*.bmp';
 import React from 'react'
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-// import styledComponents from 'styled-components'
+import styled from 'styled-components'
 
-function Character({ name }) {
-    return <div>
+const EachCard = styled.div`
+    padding:15px;
+`
+
+const CardFields = styled.span`
+    font-weight:bold;
+    line-height: 1.4;
+`
+
+function Character({ name, image, location, species, origin }) {
+    return <EachCard>
         <Flippy
             flipOnHover={true} // default false
             flipOnClick={true} // default false
@@ -14,18 +24,23 @@ function Character({ name }) {
         >
             <FrontSide
                 style={{
-                    backgroundColor: '#41669d',
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: 'cover'
                 }}
             >
-                RICK
             </FrontSide>
             <BackSide
-                style={{ backgroundColor: '#175852'}}
+                style={{ 
+                    backgroundColor: '#B7E4F999'
+                }}
             >
-                ROCKS
+                <div><CardFields>Name:</CardFields> {name}</div>
+                <div><CardFields>Location:</CardFields> {location}</div>
+                <div><CardFields>Species:</CardFields> {species}</div>
+                <div><CardFields>Origin:</CardFields> {origin}</div>
             </BackSide>
         </Flippy>
-    </div>
+    </EachCard>
 }
 
 
