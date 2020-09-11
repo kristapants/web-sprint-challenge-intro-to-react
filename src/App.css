@@ -1,8 +1,17 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .Header {
-  color: #443e3e;
+  color: #000000;
   text-shadow: 1px 1px 5px #fff;
+  background-color: #f0f0f0;
+  padding: 30px;
+  width:auto;
+  opacity: 85%;
+  border: 1px solid #443e3e;
+  border-radius: 8%;
+  align-self: center;
 }
 /* write your parent styles in here for your App.js */
