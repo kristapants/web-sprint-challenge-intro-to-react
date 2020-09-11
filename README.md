@@ -30,11 +30,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+  `React JS is a Javascript library for front end development that reacts to changes in data (near) instantly. React JS was developed by Facebook to handle the many moving parts required of a singlepage application. By rendering components individually and then showing updates to those components, the user has the experience of seeing their changes to a components state occur in essentially real time. `
+
 1. Describe component state.
+
+  `Component state is what we see and what changes when something is modified. A components state is kinda in two parts; what it is (state) and what it will be (setState). we can't change state directly in some cases because there are other components that depend on it, so we pass changes into setState. All setState changes are processed in batches so we can chain updates together, rather than conflicting.  `
 
 1. Describe props.
 
+  `Props (i think it's short for properties?) are attributes that can be passed to components`
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+  `Side effects are the things that happen outside of a function as a result of that function. A 'pure' function has no side effects, it takes in va;ues and returns values. Not all impure functions create side effects, but all side effects are the result of impure functions. Impure is not bad and there are desireable side effects, like modifying a global variable (which seems common).`
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
